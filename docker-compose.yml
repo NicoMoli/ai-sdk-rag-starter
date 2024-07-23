@@ -1,0 +1,18 @@
+services:
+  vercel-rag-db:
+    image: postgres:15.1
+    container_name: vercel-rag-db
+    restart: always
+    environment:
+      POSTGRES_DB: "vercel-rag-db"
+      POSTGRES_USER: "nico"
+      POSTGRES_PASSWORD: "nico"
+    ports:
+      - "5432:5432"
+    expose:
+      - "5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
